@@ -51,7 +51,7 @@ set(sample_dir
 include_directories(${include_dir})
 
 add_library(
-  doip_lib
+  doip_lib SHARED
   ${source_dir}/message.cpp
   ${source_dir}/generic_nack.cpp
   ${source_dir}/vehicle_id_request.cpp
@@ -71,6 +71,11 @@ add_library(
   ${source_dir}/diag_message_nack.cpp
   ${source_dir}/announcement_timer.cpp
   ${source_dir}/doip_controller.cpp
+)
+
+set_target_properties(doip_lib PROPERTIES
+    VERSION 0.1
+    SOVERSION 0
 )
 
 target_include_directories(doip_lib
